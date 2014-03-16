@@ -40,7 +40,7 @@ Demo.Scene.prototype = {
     this.renderer.setClearColor( 0xEEEEEE, 0.2 );
 
     this.listeners();
-    // this.statsSetup();
+    this.statsSetup();
   },
 
   listeners: function () {
@@ -59,6 +59,7 @@ Demo.Scene.prototype = {
     this.stats = new Stats();
     this.stats.domElement.style.position = 'absolute';
     this.stats.domElement.style.top = '0px';
+    this.stats.domElement.style.right = '0px';
     this.container.appendChild( this.stats.domElement );
   },
 

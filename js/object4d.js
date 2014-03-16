@@ -13,7 +13,7 @@ Demo.Object4D = function () {
   THREE.Object3D.call( this );
 
   this._targetLocation = {};
-  this._moving = true;
+  this._moving = false;
 
   // i just did this for the demo
   this._speed = Math.floor(Math.random() * 30) + 60;

@@ -30,13 +30,13 @@ Demo.Manager.prototype = {
 
     $("#addTarget").on("click", function () {
       createCubes(1);
+      me.setRandomTargets();
     });
 
     $("#add100Targets").on("click", function () {
       createCubes(1000);
+      me.setRandomTargets();
     });
-
-
   },
 
   update: function () {

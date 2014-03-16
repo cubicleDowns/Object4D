@@ -3,22 +3,24 @@
 <head>
   <title>Object4D - Animating Object3D meshes with THREE.js</title>
   <!-- All demo code is here or available on my github account under code-samples
-       https://github.com/cubicleDowns/webgl-code-samples
-
-      You can also read an explaiation on my blog, http://blog.tempt3d.com/
-
+       https://github.com/cubicleDowns/Object4D
    -->
+<meta name="description" context="Object4D - Animating Object3D meshes with THREE.js">
+
+<meta itemprop="name" content="Object4D - Animating Object3D meshes with THREE.js">
+<meta itemprop="description" content="Extend the Object3D property of Three.js and animate with varied speed and target locations.">
+
 
   <link rel="stylesheet" href="css/demo.css" type="text/css">
 
   <script src="lib/jquery-1.9.1.min.js"></script>
   <script src="lib/three.v63.min.js"></script>
   <script src="lib/Stats.js"></script>
+  <script src="lib/orbit-control.js"></script>
 
   <script src="js/scene.js"></script>
   <script src="js/camera.js"></script>
   <script src="js/setup.js"></script>
-  <script src="js/orbit-control.js"></script>
   <script src="js/object4d.js"></script>
   <script src="js/clock.js"></script>
   <script src="js/manager.js"></script>
@@ -26,16 +28,16 @@
 
 </head>
 <body>
-<div id="ray-intersection"></div>
+<div id="object4d-example"></div>
 <div id="what">
   <p>This Object4D demo shows how to extend the THREE.Object3D class with properties to animate it.</p>
-  <p>Click on the following to give each cube a new random target location:  <a href="#" id="newTargets">Random Targets</a></p>
+  <p><a href="#" id="newTargets">Send all cubes</a> to random locations with different speeds.</p>
   <p>Locations are random (within a 200 unit bound).  Speed is slightly random as well.  Colors are random.</p>
-  <p>This demo does not use TWEEN.js.  Methods and properties are in a new class called Object4D.</p>
+  <p>Methods and properties are in a new class called <a href="https://github.com/cubicleDowns/Object4D">Object4D</a>.</p>
   <p><a href="#" id="addTarget">Add a single cube</a></p>
   <p><a href="#" id="add100Targets">Add 1000 cubes</a></p>
-  <p>Want to see something cool?  Click on Random Targets repeatedly and they will eventually flock together</p>
-  <p>If you add enough cubes, the random cube locations will fill out a cube with 200x200x200 dimensions.</p>
+  <p>Click on Random Targets repeatedly and they will eventually flock together</p>
+  <p>Notice that the speed of the cubes remains constant even if the frame rate changes</p>
 
 </div>
 <ul class="info"><li>jQuery: v<span id="jqv"></span> | </li><li> THREE.js: v<span id="tjsv"></span></li></ul>
@@ -49,9 +51,7 @@
 
     $(document).ready(function () {
 
-
-
-      demo = new Demo.Scene("ray-intersection");
+      demo = new Demo.Scene("object4d-example");
       demo.animate();
 
       var numMovers = 100;
